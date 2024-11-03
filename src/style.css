@@ -4,16 +4,23 @@
 .container {
     margin: 0 auto;
     max-width: 1280px;
+    height: 100%;
 }
 
 #app {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100vh;
-    width: 100vw;
 
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
     font-size: 32px;
+}
+
+a, button {
+    all: unset;
+}
+
+a, button {
+    cursor: pointer;
 }
