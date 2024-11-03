@@ -17,7 +17,7 @@
     .header {
         background-color: #01257D;
         height: 84px;
-        color: white;
+        color: #FEFDF9;;
     }
 
     .header__content {
