@@ -74,7 +74,7 @@ import frameIMG from '../assets/images/frame.png'
     }
 
     .main__tools {
-
+        margin-top: 104px;
     }
 
     .main__tools-title {
