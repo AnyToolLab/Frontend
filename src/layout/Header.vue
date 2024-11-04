@@ -5,9 +5,9 @@
     <div class="header">
         <div class="container">
             <div class="header__content">
-                <div class="header__logo-text header__text">
+                <RouterLink to="/" class="header__logo-text header__text">
                     AnyTools
-                </div>
+                </RouterLink>
             </div>
         </div>
     </div>
