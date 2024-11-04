@@ -39,7 +39,7 @@ import frameIMG from '../assets/images/frame.png'
                                 <img :src="fakerIMG" alt="faker" class="tools__item-img">
                                 <div class="tools__item-text">Faker</div>
                             </RouterLink>
-                            <RouterLink to="#" class="main__tools-item">
+                            <RouterLink to="/archive" class="main__tools-item">
                                 <img :src="archiveIMG" alt="archive" class="tools__item-img">
                                 <div class="tools__item-text">Archive</div>
                             </RouterLink>

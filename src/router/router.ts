@@ -6,6 +6,7 @@ import IMGconvertor from '../pages/IMGconvertor.vue'
 import Faker from '../pages/Faker.vue'
 import CropImage from '../pages/CropImage.vue'
 import BGremover from '../pages/BGremover.vue'
+import Archive from '../pages/Archive.vue'
 
 
 const routes = [
@@ -14,7 +15,8 @@ const routes = [
     { path: '/img-convertor', component: IMGconvertor },
     { path: '/faker', component: Faker },
     { path: '/crop-image', component: CropImage },
-    { path: '/bg-remover', component: BGremover }
+    { path: '/bg-remover', component: BGremover },
+    { path: '/archive', component: Archive },
 ]
 
 const router = createRouter({
