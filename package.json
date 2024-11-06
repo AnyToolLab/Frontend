@@ -9,6 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tensorflow-models/body-pix": "^2.2.1",
+    "@tensorflow-models/body-segmentation": "^1.0.2",
+    "@tensorflow/tfjs": "^4.22.0",
     "vue": "^3.5.12",
     "vue-router": "^4.4.5"
   },

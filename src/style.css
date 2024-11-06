@@ -5,6 +5,7 @@
     margin: 0 auto;
     max-width: 1280px;
     height: 100%;
+    position: relative;
 }
 
 #app {
@@ -15,6 +16,7 @@
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
     font-size: 32px;
+    height: 100vh;
 }
 
 a, button {
