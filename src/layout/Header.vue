@@ -56,6 +56,7 @@ import ArrowDownIMG from '../assets/images/arrow-down.svg'
     }
 
     .header__tools:hover {
+        z-index: 100;
         .header__tools-menu {
             position: absolute;
             display: flex;
@@ -87,7 +88,5 @@ import ArrowDownIMG from '../assets/images/arrow-down.svg'
         padding: 24px 24px 24px 46px;
         border: 1px solid #01257D;
     }
-
-    
 
 </style>
