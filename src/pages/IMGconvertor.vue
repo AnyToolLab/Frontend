@@ -51,7 +51,7 @@ const handleProcess = async () => {
     formData.append('convert_to_formats', JSON.stringify(convertToFormats));
 
     try {
-        const response = await fetch('http://159.223.218.22:8000/image-converter/convert/', {
+        const response = await fetch('http://127.0.0.1:8000/image-converter/convert/', {
             method: 'POST',
             body: formData
         });
@@ -117,7 +117,7 @@ function openFileDialog() {
                                         <img :src="imgIconSVG" alt="Uploaded image" class="img__item-icon">
                                         <div class="img__item-name">{{ item.file_name }}</div>
                                     </div>
-                                    <a :href="item.file_url" :download="item.file_name">
+                                    <a :href="item.file_url" :download="item.file_name" target="_blank">
                                         <button class="button">
                                             Download
                                         </button>
@@ -155,7 +155,7 @@ function openFileDialog() {
                                                 <button @click="handleConvertTo(index, 'JPEG')">JPEG</button>
                                                 <button @click="handleConvertTo(index, 'WEBP')">WEBP</button>
                                                 <button @click="handleConvertTo(index, 'GIF')">GIF</button>
-                                                <button @click="handleConvertTo(index, 'PSD')">PSD</button>
+                                                <button @click="handleConvertTo(index, 'PDF')">PDF</button>
                                                 <button @click="handleConvertTo(index, 'ICO')">ICO</button>
                                                 <button @click="handleConvertTo(index, 'BMP')">BMP</button>
                                             </div>
