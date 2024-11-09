@@ -154,7 +154,10 @@ function openFileDialog() {
                                                 <button @click="handleConvertTo(index, 'PNG')">PNG</button>
                                                 <button @click="handleConvertTo(index, 'JPEG')">JPEG</button>
                                                 <button @click="handleConvertTo(index, 'WEBP')">WEBP</button>
-                                                <button @click="handleConvertTo(index, 'SVG')">SVG</button>
+                                                <button @click="handleConvertTo(index, 'GIF')">GIF</button>
+                                                <button @click="handleConvertTo(index, 'PSD')">PSD</button>
+                                                <button @click="handleConvertTo(index, 'ICO')">ICO</button>
+                                                <button @click="handleConvertTo(index, 'BMP')">BMP</button>
                                             </div>
                                         </div>
                                         <div>

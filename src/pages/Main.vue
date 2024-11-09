@@ -6,7 +6,7 @@ import fakerIMG from '../assets/images/faker.png'
 import imgConvertorIMG from '../assets/images/img-convertor.png'
 import imgResizerIMG from '../assets/images/img-resizer.png'
 import qrCodeIMG from '../assets/images/qr-code.png'
-import frameIMG from '../assets/images/frame.png'
+// import frameIMG from '../assets/images/frame.png'
 
 </script>
 
@@ -48,7 +48,7 @@ import frameIMG from '../assets/images/frame.png'
                                 <div class="tools__item-text">BG remover</div>
                             </RouterLink>
                         </div>
-                        <img :src="frameIMG" alt="" class="main__tools-img">
+                        <!-- <img :src="frameIMG" alt="" class="main__tools-img"> -->
                     </div>
                 </div>
             </div>
@@ -57,84 +57,84 @@ import frameIMG from '../assets/images/frame.png'
 </template>
 
 <style scoped>
-    .main {
-        margin-top: 82px;
-        margin-bottom: 104px;
-    }
+.main {
+    margin-top: 82px;
+    margin-bottom: 104px;
+}
 
-    .main__content {
-        color: #202020;
-        display: flex;
-        flex-direction: column;
-    }
+.main__content {
+    color: #202020;
+    display: flex;
+    flex-direction: column;
+}
 
-    .main__tools-wrapper {
-        display: flex;
-        justify-content: space-between;
-    }
+.main__tools-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
 
-    .main__tools {
-        margin-top: 104px;
-    }
+.main__tools {
+    margin-top: 104px;
+}
 
-    .main__tools-title {
-        margin-bottom: 55px;
-        font-size: 36px;
-    }
+.main__tools-title {
+    margin-bottom: 55px;
+    font-size: 36px;
+}
 
-    .main__tools-items {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        grid-gap: 25px;
-    }
+.main__tools-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 25px;
+}
 
-    .main__tools-item {
-        border: 2px solid #01257D;
-        border-radius: 20px;
-        max-width: 193px;
-        height: auto;
-        aspect-ratio: 1 / 1;
+.main__tools-item {
+    border: 2px solid #01257D;
+    border-radius: 20px;
+    max-width: 193px;
+    height: auto;
+    aspect-ratio: 1 / 1;
 
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-        cursor: pointer;
-    }
+    cursor: pointer;
+}
 
-    .tools__item-img {
-        width: 147;
-    }
-    
-    .tools__item-text {
-        font-size: 24px;
-        font-weight: 600;
-        line-height: 36px;
-        text-align: center;
-        max-width: 162px;
-    }
+.tools__item-img {
+    width: 147;
+}
 
-    .main__welcome {
-        background-color: #01257D;
-        color: #FEFDF9;
-        width: 628px;
-        height: 353px;
-        margin: 0 auto;
-        border-radius: 20px;
+.tools__item-text {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 36px;
+    text-align: center;
+    max-width: 162px;
+}
 
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-    }
+.main__welcome {
+    background-color: #01257D;
+    color: #FEFDF9;
+    width: 628px;
+    height: 353px;
+    margin: 0 auto;
+    border-radius: 20px;
 
-    .main__welcome-title {
-        font-size: 36px;
-    }
-    
-    .main__welcome-text {
-        margin-top: 24px;
-    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.main__welcome-title {
+    font-size: 36px;
+}
+
+.main__welcome-text {
+    margin-top: 24px;
+}
 </style>
