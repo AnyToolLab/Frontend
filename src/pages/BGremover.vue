@@ -83,7 +83,7 @@ async function removeBackground() {
     <div class="backgorundrm">
         <div class="container">
             <div class="backgorundrm__wrapper">
-                <h1 class="backgroundrm__title">Background remover</h1>
+                <h1 class="custom__title">Background remover</h1>
                 <div class="backgroundrm__content">
                     <div
                     :style="{display: wellcomeVisible ? 'flex' : 'none'}"
@@ -154,16 +154,6 @@ async function removeBackground() {
     flex-direction: column;
     align-items: center;
     margin-bottom: 122px;
-}
-
-.backgroundrm__title {
-    font-weight: 600;
-    font-size: 36px;
-    line-height: 54px;
-    margin-top: 54px;
-    position: absolute;
-    top: 0;
-    left: 0;
 }
 
 .backgroundrm__wellcome-text {
