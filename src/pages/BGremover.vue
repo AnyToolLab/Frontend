@@ -235,10 +235,6 @@ async function removeBackground() {
     background-color: #01257D17;
 }
 
-.workbanch__button-img {
-    
-}
-
 .workbanch__button-resotre {
     margin-right: 40px;
 }
