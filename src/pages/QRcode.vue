@@ -9,7 +9,7 @@ import Switcher from '../components/Switcher.vue'
 import axios from 'axios'
 
 const previewQRCODE = ref<string>('')
-const fileTypes = [ '.png', '.jpg', '.svg', '.gif' ]
+const fileTypes = [ '.png', '.jpg', '.gif' ]
 const hoveredItem = ref(null)
 const colors = ['#202020', '#D90004', '#01257D', '#002E14']
 const colorPickerVisible = ref<boolean>(false)
@@ -25,14 +25,10 @@ const SERVER_URL = 'http://159.223.218.22:8000'
 function handleUpload(event: Event) {
     const file = (event.target as HTMLInputElement).files[0];
     backgroundIMG.value = file
-    // if (file) {
-    //     backgroundIMG.value = URL.createObjectURL(file);
-    // }
 }
 
 function selectItem(item: string) {
     selectedFileType.value = item
-    console.log(hoveredItem.value)
 }
 
 function setQRcodeColor(color: string) {
@@ -84,11 +80,10 @@ watch([
     }
 })
 
-function downloadQRcode() {
-    const link = document.createElement('a')
-    link.href = previewQRCODE.value
-    link.download = 'qrcode'
-    link.click()
+function adjustHeight(event) {
+    const element = event.target
+    element.style.height = "auto"
+    element.style.height = `${element.scrollHeight}px`
 }
 
 </script>
@@ -104,7 +99,13 @@ function downloadQRcode() {
                         <switcher></switcher>
                         Text
                     </div>
-                    <input v-model="qrcodeText" type="text" class="qrcode__settings-input">
+                    <textarea
+                        v-model="qrcodeText"
+                        type="text"
+                        rows="1" 
+                        @input="adjustHeight($event)"
+                        class="qrcode__settings-input">
+                    </textarea>
                     
                     <div class="qrcode__settings-color">
                         <div class="settings__color-title">Customize your QR</div>
@@ -118,8 +119,11 @@ function downloadQRcode() {
                                 @click="setQRcodeColor(color)"
                             ></div>
                             <div class="color__item colorpicker">
-                                <label for="color" class="color__picker-bg"></label>
-                                <input type="color" id="color" class="color__picker">
+                                <label
+                                    for="color"
+                                    class="color__picker-bg"
+                                    :style="{backgroundColor: qrcodeColor == '#000000' ? '#ffffff' : qrcodeColor }"></label>
+                                <input v-model="qrcodeColor" type="color" id="color" class="color__picker">
                                 <img v-if="!colorPickerVisible" :src="penIMG" alt="pen" class="settings__colorpicker-img">
                             </div>
                         </div>
@@ -151,7 +155,19 @@ function downloadQRcode() {
                                 @click="setQRcodeBackgroundColor(color)"
                             ></div>
                             <div class="color__item colorpicker">
-                                <img :src="penIMG" alt="pen" class="settings__colorpicker-img">
+                                <label 
+                                    :style="{backgroundColor: qrcodeBackgroundColor == '#ffffff' ? '#ffffff' : qrcodeBackgroundColor }"
+                                    for="color"
+                                    class="color__picker-bg"></label>
+                                <input
+                                    type="color"
+                                    id="color"
+                                    v-model="qrcodeBackgroundColor"
+                                    class="color__picker">
+                                <img
+                                    :src="penIMG"
+                                    alt="pen"
+                                    class="settings__colorpicker-img">
                             </div>
                         </div>
                     </div>
@@ -170,7 +186,7 @@ function downloadQRcode() {
                         </div>
                     </div>
                     <div class="qrcode__download">
-                        <button @click="downloadQRcode" class="qrcode__download-button">Download</button>
+                        <a :href="previewQRCODE" class="qrcode__download-button">Download</a>
                     </div>
                 </div>
                 
@@ -184,6 +200,11 @@ function downloadQRcode() {
 
 
 <style scoped>
+
+.file__name {
+    display: inline;
+    height: 10px;
+}
 
 .backgroundrm__wellcome-input {
     display: none;
@@ -252,6 +273,10 @@ function downloadQRcode() {
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
+    padding: 12px 24px;
+    min-width: 509px;
+    overflow-y: hidden;
+    resize: none;
 }
 
 .qrcode__settings-color {
@@ -325,7 +350,7 @@ function downloadQRcode() {
 .qrcode__save-formats {
     display: flex;
     justify-content: space-between;
-    max-width: 308px;
+    max-width: 228px;
 }
 
 .saveas__menu-item {
@@ -348,9 +373,11 @@ function downloadQRcode() {
 }
 
 .qrcode__download-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #01257D;
     color: #FEFDF9;
-    text-align: center;
     border-radius: 24px;
     font-size: 16px;
     font-weight: 600;
@@ -385,11 +412,13 @@ function downloadQRcode() {
 
 
 .color__picker-bg {
+    border-radius: 10px;
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
+    z-index: -999;
 }
 
 </style>
