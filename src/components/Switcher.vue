@@ -25,6 +25,7 @@ function handleClick() {
     border-radius: 20px;
     position: relative;
     cursor: pointer;
+    padding: 2px;
 }
 
 .switcher__circle {
@@ -33,8 +34,8 @@ function handleClick() {
     border-radius: 20px;
     height: 31px;
     width: 29px;
-    top: 0;
-    left: 1px;
+    top: 2px;
+    left: 2px;
     transition: transform 0.3s ease;
 }
 
