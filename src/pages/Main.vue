@@ -6,7 +6,8 @@ import fakerIMG from '../assets/images/faker.png'
 import imgConvertorIMG from '../assets/images/img-convertor.png'
 import imgResizerIMG from '../assets/images/img-resizer.png'
 import qrCodeIMG from '../assets/images/qr-code.png'
-import frameIMG from '../assets/images/frame.png'
+import frameIMG from '../assets/images/mainpage/frame.svg'
+import qrcodePhoneIMG from '../assets/images/mainpage/qrcode-phone.png'
 
 </script>
 
@@ -48,7 +49,10 @@ import frameIMG from '../assets/images/frame.png'
                                 <div class="tools__item-text">BG remover</div>
                             </RouterLink>
                         </div>
-                        <img :src="frameIMG" alt="" class="main__tools-img">
+                        <div class="main__tools-img">
+                            <img :src="frameIMG" alt="frame" class="main__tools-frame">
+                            <img :src="qrcodePhoneIMG" alt="" class="main__tools-qrcodePhone">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -103,10 +107,6 @@ import frameIMG from '../assets/images/frame.png'
 
         cursor: pointer;
     }
-
-    .tools__item-img {
-        width: 147;
-    }
     
     .tools__item-text {
         font-size: 24px;
@@ -136,5 +136,16 @@ import frameIMG from '../assets/images/frame.png'
     
     .main__welcome-text {
         margin-top: 24px;
+    }
+
+    .main__tools-img {
+        position: relative;
+    }
+
+    .main__tools-qrcodePhone {
+        position: absolute;
+        z-index: 99;
+        top: -167px;
+        right: 50px;
     }
 </style>
