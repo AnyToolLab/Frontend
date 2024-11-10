@@ -2,21 +2,19 @@
 
 import { ref } from 'vue';
 
-const circleSide = ref<string>('left');
+const isRight = ref(false);
 
 function handleClick() {
-    circleSide.value = circleSide.value === 'left' ? 'right' : 'left';
+    isRight.value = !isRight.value;
 }
 
 </script>
 
 <template>
-    <div :onclick="() => handleClick()" class="switcher">
-        <div :style="{ left: circleSide === 'left' ? '0' : 'auto', right: circleSide === 'right' ? '0' : 'auto' }" class="switcher__circle">
-        </div>
+    <div @click="handleClick" class="switcher">
+        <div :class="{ 'switcher__circle--right': isRight }" class="switcher__circle"></div>
     </div>
 </template>
-
 
 <style scoped>
 
@@ -36,12 +34,12 @@ function handleClick() {
     height: 31px;
     width: 29px;
     top: 0;
-    left: 0;
-    margin: 0 1px;
+    left: 1px;
+    transition: transform 0.3s ease;
 }
 
-.switcher__circle-right {
-    right: 0;
+.switcher__circle--right {
+    transform: translateX(35px);
 }
 
 </style>
