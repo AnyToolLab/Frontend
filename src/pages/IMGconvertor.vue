@@ -252,7 +252,6 @@ function openFileDialog() {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: #F3F5FA;
     border-radius: 20px;
     height: 100%;
 }
@@ -263,9 +262,11 @@ function openFileDialog() {
     justify-content: space-between;
     padding: 5px 24px;
     border: 1px solid #01257D;
+    background-color: #F3F5FA;
     border-radius: 20px;
     font-size: 24px;
     font-weight: 400;
+    margin: 10px 0;
 }
 
 .img__file {
