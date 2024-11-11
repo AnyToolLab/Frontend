@@ -1,4 +1,4 @@
-import { createMemoryHistory, createRouter } from 'vue-router'
+import { createWebHistory, createRouter } from 'vue-router'
 
 import Main from '../pages/Main.vue'
 import QRcode from '../pages/QRcode.vue'
@@ -7,6 +7,7 @@ import Faker from '../pages/Faker.vue'
 import CropImage from '../pages/CropImage.vue'
 import BGremover from '../pages/BGremover.vue'
 import Archive from '../pages/Archive.vue'
+import Page404 from '../pages/404.vue'
 
 
 const routes = [
@@ -17,10 +18,11 @@ const routes = [
     { path: '/crop-image', component: CropImage },
     { path: '/bg-remover', component: BGremover },
     { path: '/archive', component: Archive },
+    { path: '/:pathMatch(.*)*', component: Page404 }
 ]
 
 const router = createRouter({
-    history: createMemoryHistory(),
+    history: createWebHistory(),
     routes
 })
 
