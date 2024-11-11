@@ -22,6 +22,8 @@ const selectedFileType = ref<string>('.png')
 
 const SERVER_URL = 'http://159.223.218.22:8000'
 
+// TODO add types
+
 function handleUpload(event: Event) {
     const file = (event.target as HTMLInputElement).files[0];
     backgroundIMG.value = file
@@ -34,15 +36,6 @@ function selectItem(item: string) {
 function setQRcodeColor(color: string) {
     qrcodeColor.value = color
 }
-
-watch([
-    qrcodeText,
-    qrcodeColor,
-    qrcodeBackgroundColor,
-    backgroundIMG,
-], () => {
-    generateQRcode()
-})
 
 function setQRcodeBackgroundColor(color: string) {
     qrcodeBackgroundColor.value = color
@@ -65,6 +58,18 @@ async function generateQRcode() {
     previewQRCODE.value = SERVER_URL + response.data.data.url
 }
 
+function debounce(fn: Function, delay: number) {
+    let timeout
+    return (...args) => {
+        clearTimeout(timeout)
+        timeout = setTimeout(() => fn(...args), delay)
+    }
+}
+
+const debouncedGenerateQRcode = debounce(() => {
+    generateQRcode()
+}, 500)
+
 watch([
     qrcodeText,
     qrcodeColor,
@@ -74,7 +79,7 @@ watch([
 ], () => {
 
     if (qrcodeText.value) {
-        generateQRcode()
+        debouncedGenerateQRcode()
     } else {
         return;
     }
