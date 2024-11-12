@@ -10,6 +10,8 @@ const uploadedFiles = ref<Array<{ file: File; convert_to: string }>>([]);
 const processedFiles = ref<Array<{ file_url: string, file_name: string }>>([]);
 const isProcessing = ref(false);
 
+const SERVER_URL = 'http://159.223.218.22:8000'
+
 function handleUpload(event: Event) {
     const target = event.target as HTMLInputElement;
     if (target.files) {
@@ -51,7 +53,7 @@ const handleProcess = async () => {
     formData.append('convert_to_formats', JSON.stringify(convertToFormats));
 
     try {
-        const response = await fetch('http://127.0.0.1:8000/image-converter/convert/', {
+        const response = await fetch(`${SERVER_URL}/image-converter/convert/`, {
             method: 'POST',
             body: formData
         });
@@ -117,7 +119,8 @@ function openFileDialog() {
                                         <img :src="imgIconSVG" alt="Uploaded image" class="img__item-icon">
                                         <div class="img__item-name">{{ item.file_name }}</div>
                                     </div>
-                                    <a :href="item.file_url" :download="item.file_name" target="_blank">
+                                    <a :href="`${SERVER_URL}${item.file_url}`" :download="item.file_name"
+                                        target="_blank">
                                         <button class="button">
                                             Download
                                         </button>
@@ -252,6 +255,7 @@ function openFileDialog() {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background: #F3F5FA;
     border-radius: 20px;
     height: 100%;
 }
@@ -262,11 +266,9 @@ function openFileDialog() {
     justify-content: space-between;
     padding: 5px 24px;
     border: 1px solid #01257D;
-    background-color: #F3F5FA;
     border-radius: 20px;
     font-size: 24px;
     font-weight: 400;
-    margin: 10px 0;
 }
 
 .img__file {
