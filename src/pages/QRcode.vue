@@ -7,7 +7,6 @@ import uploadIMG from '../assets/images/upload_black.svg'
 import penIMG from '../assets/images/pen.png'
 import Switcher from '../components/Switcher.vue'
 import axios from 'axios'
-import 'dotenv/config'
 
 const previewQRCODE = ref<string>('')
 const fileTypes = [ '.png', '.jpg', '.gif' ]
@@ -21,7 +20,7 @@ const qrcodeBackgroundColor = ref<string>('#ffffff');
 const backgroundIMG = ref<File | null>(null)
 const selectedFileType = ref<string>('.png')
 
-const SERVER_URL = process.env.SERVER_URL
+const SERVER_URL = import.meta.env.VITE_SERVER_URL
 
 // TODO add types
 

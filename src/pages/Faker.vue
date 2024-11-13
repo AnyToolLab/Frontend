@@ -3,7 +3,6 @@
 import miniArrowDownIMG from '../assets/images/mini-arrowdown.svg'
 import axios from 'axios'
 import { ref } from 'vue'
-import 'dotenv/config'
 
 const fields = [
     // Person
@@ -94,7 +93,7 @@ const visibleSaveFormats = ref(false)
 const currentFormat = ref('...')
 const rows = ref(1)
 
-const SERVER_URL = process.env.SERVER_URL
+const SERVER_URL = import.meta.env.VITE_SERVER_URL
 
 // TODO: add types
 
