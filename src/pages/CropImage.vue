@@ -9,7 +9,7 @@ import uploadIMG from '../assets/images/upload_white.svg'
 const width = ref<number>(540)
 const height = ref<number>(670)
 const isOpen = ref<boolean>(false)
-const hoveredItem = ref(null)
+const hoveredItem = ref<number | null>(null)
 const selectedItem = ref<string>('Original')
 const menuItems = ref(['PNG', 'JPG', 'WEBP', 'Original'])
 const cropperData = ref()
@@ -25,7 +25,7 @@ function selectItem(item: string) {
     isOpen.value = false
 }
 
-async function cropperChangeHandler(event) {
+async function cropperChangeHandler() {
   if (cropperData.value) {
     const coordinates = await cropperData.value.getResult()
     console.log(coordinates)
@@ -56,7 +56,9 @@ async function downloadCroppedImage() {
 }
 
 function handleUpload(event: Event) {
-    const file = (event.target as HTMLInputElement).files[0];
+    const files = (event.target as HTMLInputElement).files;
+    if (!files) return;
+    const file = files[0];
     const fileType = file.type;
     originalFileType.value = fileType.split("/")[1];
     if (file) {

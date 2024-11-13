@@ -18,10 +18,11 @@ const wellcomeVisible = ref<boolean>(true)
 
 
 function handleUpload(event: Event) {
-    const file = (event.target as HTMLInputElement).files[0];
-    if (file) {
+    const input = event.target as HTMLInputElement;
+    if (input && input.files && input.files[0]) {
+        const file = input.files[0];
         photo.value = URL.createObjectURL(file);
-        wellcomeVisible.value = false
+        wellcomeVisible.value = false;
     }
 }
 
@@ -43,21 +44,22 @@ async function removeBackground() {
 
     const net = await bodyPix.load({
         architecture: 'MobileNetV1',
-        outputStride: outputStride,  
-        segmentationThreshold: segmentationThreshold,
-        internalResolution: 'high',
+        outputStride: outputStride,
     });
 
     const segmentation = await net.segmentPerson(img, {
         internalResolution: 'high',
-        segmentationThreshold: segmentationThreshold,
-        stride: outputStride,
+        segmentationThreshold: segmentationThreshold
     });
 
     const canvas = document.createElement('canvas');
     canvas.width = img.width;
     canvas.height = img.height;
     const ctx = canvas.getContext('2d');
+
+    if (!ctx) {
+        throw new Error("Failed to get 2D context");
+    }
 
     ctx.drawImage(img, 0, 0);
 
@@ -73,7 +75,7 @@ async function removeBackground() {
     ctx.putImageData(imageData, 0, 0);
     photoBG.value = canvas.toDataURL();
 
-    visiblePhoto.value = 'false'
+    visiblePhoto.value = 'false';
 }
 
 

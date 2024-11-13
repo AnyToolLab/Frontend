@@ -87,6 +87,11 @@ const fields = [
     { key: 'user_agent', label: 'User Agent' },
 ]
 
+interface FieldsInterface {
+    key: string
+    label: string
+}
+
 const saveFormats = ['csv', 'json', 'xml']
 const selectedColumns = ref<string[]>([])
 const visibleSaveFormats = ref(false)
@@ -105,7 +110,7 @@ function selectFormat(format: string) {
     currentFormat.value = format
 }
 
-function selectColumn(item) {
+function selectColumn(item: FieldsInterface) {
     const index = selectedColumns.value.indexOf(item.key)
     if (index !== -1) {
         selectedColumns.value.splice(index, 1)
@@ -114,7 +119,7 @@ function selectColumn(item) {
     }
 }
 
-function isSelected(item) {
+function isSelected(item: FieldsInterface) {
     return selectedColumns.value.includes(item.key)
 }
 
@@ -144,7 +149,7 @@ async function generateTable() {
 
     const form = new FormData()
     form.append('fake_data', json)
-    form.append('rows', rows.value)
+    form.append('rows', rows.value.toString())
     form.append('save_format', currentFormat.value)
 
     const response = await axios.post(`${SERVER_URL}/fake-data/generate/`, form)

@@ -10,7 +10,7 @@ import axios from 'axios'
 
 const previewQRCODE = ref<string>('')
 const fileTypes = [ '.png', '.jpg', '.gif' ]
-const hoveredItem = ref(null)
+const hoveredItem = ref<null | number>(null)
 const colors = ['#202020', '#D90004', '#01257D', '#002E14']
 const colorPickerVisible = ref<boolean>(false)
 
@@ -22,11 +22,12 @@ const selectedFileType = ref<string>('.png')
 
 const SERVER_URL = import.meta.env.VITE_SERVER_URL
 
-// TODO add types
-
 function handleUpload(event: Event) {
-    const file = (event.target as HTMLInputElement).files[0];
-    backgroundIMG.value = file
+    const target = event.target as HTMLInputElement;
+    if (target && target.files && target.files[0]) {
+        const file = target.files[0];
+        backgroundIMG.value = file;
+    }
 }
 
 function selectItem(item: string) {
@@ -58,12 +59,13 @@ async function generateQRcode() {
     previewQRCODE.value = SERVER_URL + response.data.data.url
 }
 
-function debounce(fn: Function, delay: number) {
-    let timeout
-    return (...args) => {
-        clearTimeout(timeout)
-        timeout = setTimeout(() => fn(...args), delay)
-    }
+function debounce<T extends (...args: any[]) => void>(fn: T, delay: number) {
+    let timeout: ReturnType<typeof setTimeout>;
+
+    return (...args: Parameters<T>): void => {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => fn(...args), delay);
+    };
 }
 
 const debouncedGenerateQRcode = debounce(() => {
@@ -85,10 +87,12 @@ watch([
     }
 })
 
-function adjustHeight(event) {
-    const element = event.target
-    element.style.height = "auto"
-    element.style.height = `${element.scrollHeight}px`
+function adjustHeight(event: Event) {
+    const element = event.target as HTMLTextAreaElement;
+    if (element && element.style) {
+        element.style.height = "auto";
+        element.style.height = `${element.scrollHeight}px`;
+    }
 }
 
 </script>
