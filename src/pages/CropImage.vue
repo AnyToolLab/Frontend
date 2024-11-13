@@ -4,7 +4,7 @@ import miniArrowDownIMG from '../assets/images/mini-arrowdown.svg'
 import { Cropper } from 'vue-advanced-cropper';
 import 'vue-advanced-cropper/dist/style.css';
 import { ref } from 'vue'
-import uploadIMG from '../assets/images/upload.svg'
+import uploadIMG from '../assets/images/upload_white.svg'
 
 const width = ref<number>(540)
 const height = ref<number>(670)
@@ -175,11 +175,13 @@ function handleUpload(event: Event) {
     display: flex;
     justify-content: space-between;
     width: 324px;
+    display: none;
 }
 
 .setting__saveas-menu {
     margin-top: 48px;
-    user-select: none
+    user-select: none;
+    width: 324px;
 }
 
 .saveas__value {
@@ -304,6 +306,7 @@ function handleUpload(event: Event) {
 
 .background__label-img {
     margin-left: 16px;   
+    color: #FEFDF9 !important;
 }
 
 </style>

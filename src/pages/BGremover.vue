@@ -5,7 +5,7 @@ import "@tensorflow/tfjs-converter";
 import "@tensorflow/tfjs-backend-webgl";
 import * as bodyPix from "@tensorflow-models/body-pix";
 
-import uploadIMG from '../assets/images/upload.svg'
+import uploadIMG from '../assets/images/upload_white.svg'
 import eraserIMG from '../assets/images/eraser.png'
 import pensilIMG from '../assets/images/pensil.png'
 
@@ -191,6 +191,7 @@ async function removeBackground() {
 
 .background__label-img {
     margin-left: 16px;   
+    fill: #FEFDF9;
 }
 
 .backgroundrm__workbanch {

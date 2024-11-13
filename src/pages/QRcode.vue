@@ -3,10 +3,11 @@
 import { ref, watch } from 'vue'
 
 import qrcodePlug from '../assets/images/qrcode-dev.png'
-import uploadIMG from '../assets/images/upload.svg'
+import uploadIMG from '../assets/images/upload_black.svg'
 import penIMG from '../assets/images/pen.png'
 import Switcher from '../components/Switcher.vue'
 import axios from 'axios'
+import 'dotenv/config'
 
 const previewQRCODE = ref<string>('')
 const fileTypes = [ '.png', '.jpg', '.gif' ]
@@ -20,7 +21,7 @@ const qrcodeBackgroundColor = ref<string>('#ffffff');
 const backgroundIMG = ref<File | null>(null)
 const selectedFileType = ref<string>('.png')
 
-const SERVER_URL = 'http://159.223.218.22:8000'
+const SERVER_URL = process.env.SERVER_URL
 
 // TODO add types
 
