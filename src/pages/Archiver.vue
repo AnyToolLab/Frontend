@@ -412,7 +412,7 @@ p {
 }
 
 .main {
-    margin-top: 82px;
+    margin-top: 54px;
     margin-bottom: 104px;
     color: #202020;
     font-family: Montserrat;
@@ -443,7 +443,8 @@ p {
 .main__title {
     font-size: 36px;
     font-weight: 600;
-    margin-bottom: 35px;
+    margin-top: 0;
+    margin-bottom: 40px;
 }
 
 .tool__desc {

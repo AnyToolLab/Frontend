@@ -165,11 +165,8 @@ async function generateTable() {
             <h1 class="custom__title">Faker</h1>
             <div class="faker__wrapper">
                 <div class="faker__fields">
-                    <div
-                        v-for="item in fields" 
-                        :key="item.key"
-                        :class="['faker__fields-item', { 'selected': isSelected(item) }]"
-                        @click="selectColumn(item)">
+                    <div v-for="item in fields" :key="item.key"
+                        :class="['faker__fields-item', { 'selected': isSelected(item) }]" @click="selectColumn(item)">
                         {{ item.label }}
                     </div>
                 </div>
@@ -182,18 +179,11 @@ async function generateTable() {
                 </div>
                 <div class="faker__formats">
                     <div class="faker__formats-text">Save the table in</div>
-                    <div class="faker__formats-list"
-                        @click="changeVisibleSaveFormats">
+                    <div class="faker__formats-list" @click="changeVisibleSaveFormats">
                         {{ currentFormat }}
                         <img :src="miniArrowDownIMG" alt="" class="formats__list-img">
-                        <div 
-                            class="formats__list-items"
-                            v-if="visibleSaveFormats">
-                            <div
-                                v-for="format in saveFormats"
-                                @click="selectFormat(format)"
-                                class="formats__list-item"
-                            >
+                        <div class="formats__list-items" v-if="visibleSaveFormats">
+                            <div v-for="format in saveFormats" @click="selectFormat(format)" class="formats__list-item">
                                 {{ format }}
                             </div>
                         </div>
@@ -209,7 +199,6 @@ async function generateTable() {
 </template>
 
 <style scoped>
-
 .selected {
     background-color: #01257D !important;
     color: #FEFDF9;
@@ -280,6 +269,7 @@ async function generateTable() {
 }
 
 .faker__preview {
+    display: none;
     width: 100%;
     height: 224px;
     border: 2px solid #01256D;
@@ -365,5 +355,4 @@ async function generateTable() {
     color: #FEFDF9;
     transition: all 0.2s;
 }
-
 </style>

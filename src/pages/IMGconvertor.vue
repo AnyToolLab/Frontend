@@ -199,7 +199,7 @@ function openFileDialog() {
 
 <style scoped>
 .main {
-    margin-top: 82px;
+    margin-top: 54px;
     margin-bottom: 104px;
     color: #202020;
     font-family: Montserrat;
@@ -230,7 +230,8 @@ function openFileDialog() {
 .main__title {
     font-size: 36px;
     font-weight: 600;
-    margin-bottom: 54px;
+    margin-top: 0px;
+    margin-bottom: 40px;
 }
 
 .tool__desc {

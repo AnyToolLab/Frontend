@@ -7,7 +7,7 @@ import imgConvertorIMG from '../assets/images/img-convertor.png'
 import imgResizerIMG from '../assets/images/img-resizer.png'
 import qrCodeIMG from '../assets/images/qr-code.png'
 import frameIMG from '../assets/images/mainpage/frame.svg'
-import qrcodePhoneIMG from '../assets/images/mainpage/qrcode-phone.png'
+import tookitIMG from '../assets/images/mainpage/toolkit.png'
 
 </script>
 
@@ -16,7 +16,7 @@ import qrcodePhoneIMG from '../assets/images/mainpage/qrcode-phone.png'
         <div class="container">
             <div class="main__content">
                 <div class="main__welcome">
-                    <h1 class="main__welcome-title">Welcome to AnyTools!</h1>
+                    <h1 class="main__welcome-title">Welcome to AnyToolLab!</h1>
                     <div class="main__welcome-text">Everything you were looking for is available in a few clicks</div>
                 </div>
                 <div class="main__tools">
@@ -30,19 +30,19 @@ import qrcodePhoneIMG from '../assets/images/mainpage/qrcode-phone.png'
                             </RouterLink>
                             <RouterLink to="/img-convertor" class="main__tools-item">
                                 <img :src="imgConvertorIMG" alt="imgconverter" class="tools__item-img">
-                                <div class="tools__item-text">IMG convertor</div>
+                                <div class="tools__item-text">Img converter</div>
                             </RouterLink>
                             <RouterLink to="/crop-image" class="main__tools-item">
                                 <img :src="imgResizerIMG" alt="imgresizer" class="tools__item-img">
-                                <div class="tools__item-text">IMG resizer</div>
+                                <div class="tools__item-text">Img crop</div>
                             </RouterLink>
                             <RouterLink to="/faker" class="main__tools-item">
                                 <img :src="fakerIMG" alt="faker" class="tools__item-img">
                                 <div class="tools__item-text">Faker</div>
                             </RouterLink>
-                            <RouterLink to="/archive" class="main__tools-item">
+                            <RouterLink to="/archiver" class="main__tools-item">
                                 <img :src="archiveIMG" alt="archive" class="tools__item-img">
-                                <div class="tools__item-text">Archive</div>
+                                <div class="tools__item-text">Archiver</div>
                             </RouterLink>
                             <RouterLink to="/bg-remover" class="main__tools-item">
                                 <img :src="bgRemoverIMG" alt="bgremover" class="tools__item-img">
@@ -51,7 +51,7 @@ import qrcodePhoneIMG from '../assets/images/mainpage/qrcode-phone.png'
                         </div>
                         <div class="main__tools-img">
                             <img :src="frameIMG" alt="frame" class="main__tools-frame">
-                            <img :src="qrcodePhoneIMG" alt="" class="main__tools-qrcodePhone">
+                            <img :src="tookitIMG" alt="" class="main__tools-frame-img">
                         </div>
                     </div>
                 </div>
@@ -98,31 +98,36 @@ import qrcodePhoneIMG from '../assets/images/mainpage/qrcode-phone.png'
     border-radius: 20px;
     max-width: 193px;
     height: auto;
-    aspect-ratio: 1 / 1;
+    padding: 0px 20px;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-        cursor: pointer;
-    }
-    
-    .tools__item-text {
-        font-size: 24px;
-        font-weight: 600;
-        line-height: 36px;
-        text-align: center;
-        max-width: 162px;
-    }
+    cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.main__tools-item:hover {
+    box-shadow: 2px 3px 4px 0px rgb(170, 170, 170);
+}
+
+.tools__item-text {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 36px;
+    text-align: center;
+    max-width: 162px;
+}
 
 .main__welcome {
     background-color: #01257D;
     color: #FEFDF9;
-    width: 628px;
-    height: 353px;
+    padding: 55px 30px;
+    max-width: 600px;
     margin: 0 auto;
-    border-radius: 20px;
+    border-radius: 10px;
 
     display: flex;
     flex-direction: column;
@@ -130,22 +135,24 @@ import qrcodePhoneIMG from '../assets/images/mainpage/qrcode-phone.png'
     text-align: center;
 }
 
-    .main__welcome-title {
-        font-size: 36px;
-    }
-    
-    .main__welcome-text {
-        margin-top: 24px;
-    }
+.main__welcome-title {
+    font-size: 36px;
+}
 
-    .main__tools-img {
-        position: relative;
-    }
+.main__welcome-text {
+    margin-top: 24px;
+}
 
-    .main__tools-qrcodePhone {
-        position: absolute;
-        z-index: 99;
-        top: -167px;
-        right: 50px;
-    }
+.main__tools-img {
+    display: inline-block;
+    position: relative;
+}
+
+.main__tools-frame-img {
+    position: absolute;
+    z-index: 99;
+    top: -60px;
+    right: 100px;
+
+}
 </style>

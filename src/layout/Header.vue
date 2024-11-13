@@ -9,7 +9,7 @@ import ArrowDownIMG from '../assets/images/arrow-down.svg'
         <div class="container">
             <div class="header__content">
                 <RouterLink to="/" class="header__logo-text header__text">
-                    AnyTools
+                    AnyToolLab
                 </RouterLink>
                 <div class="header__tools">
                     <div class="header__tools-text">
@@ -18,10 +18,10 @@ import ArrowDownIMG from '../assets/images/arrow-down.svg'
                     </div>
                     <div class="header__tools-menu">
                         <RouterLink class="header__tools-item" to="/qrcode-generator">QR-code</RouterLink>
-                        <RouterLink class="header__tools-item" to="/img-convertor">IMG convertor</RouterLink>
-                        <RouterLink class="header__tools-item" to="/crop-image">Crop IMG </RouterLink>
+                        <RouterLink class="header__tools-item" to="/img-convertor">Img converter</RouterLink>
+                        <RouterLink class="header__tools-item" to="/crop-image">Crop Img</RouterLink>
                         <RouterLink class="header__tools-item" to="/faker">Faker</RouterLink>
-                        <RouterLink class="header__tools-item" to="/archive">Archive</RouterLink>
+                        <RouterLink class="header__tools-item" to="/archiver">Archiver</RouterLink>
                         <RouterLink class="header__tools-item" to="/bg-remover">BG remover</RouterLink>
                     </div>
                 </div>
@@ -50,9 +50,14 @@ import ArrowDownIMG from '../assets/images/arrow-down.svg'
 }
 
 .header__tools {
-    margin-right: 130px;
     cursor: pointer;
     position: relative;
+}
+
+.header__tools-img {
+    max-width: 20px;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
 }
 
 .header__tools:hover {
@@ -62,17 +67,20 @@ import ArrowDownIMG from '../assets/images/arrow-down.svg'
         position: absolute;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        top: 40px;
+        gap: 17px;
         right: -68px;
+    }
+
+    .header__tools-img {
+        transform: rotate(180deg);
     }
 }
 
-.header__tools-text {}
-
-.header__tools-img {
-    padding-left: 16px;
-
+.header__tools-text {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
 }
 
 .header__tools-menu {
@@ -82,10 +90,21 @@ import ArrowDownIMG from '../assets/images/arrow-down.svg'
     font-size: 20px;
     font-weight: 500;
 
-    height: 308px;
-    width: 210px;
+    width: 170px;
     border-radius: 20px;
-    padding: 24px 24px 24px 46px;
+    padding: 20px;
     border: 1px solid #01257D;
+
+    cursor: default;
+}
+
+.header__tools-item {
+    color: #202020;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.header__tools-item:hover {
+    color: #0077cc;
 }
 </style>

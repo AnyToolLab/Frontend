@@ -6,6 +6,7 @@
     max-width: 1280px;
     height: 100%;
     position: relative;
+    padding: 0 15px;
 }
 
 #app {
@@ -30,7 +31,7 @@ a, button {
     margin-top: 54px;
     position: absolute;
     top: 0;
-    left: 0;
+    left: 15px;
 }
 
 input::-webkit-outer-spin-button,

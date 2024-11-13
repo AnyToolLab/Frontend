@@ -3,6 +3,23 @@
 import Header from './layout/Header.vue';
 import Footer from './layout/Footer.vue';
 
+import { onMounted, onBeforeUnmount } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
+onMounted(() => {
+    router.afterEach(scrollToTop);
+});
+
+onBeforeUnmount(() => {
+    router.afterEach(() => { });
+});
+
 </script>
 
 <template>
@@ -11,6 +28,4 @@ import Footer from './layout/Footer.vue';
     <Footer />
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
