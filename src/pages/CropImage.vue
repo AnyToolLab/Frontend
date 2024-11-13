@@ -285,6 +285,11 @@ function handleUpload(event: Event) {
     border-radius: 40px;
 }
 
+.download__button:hover {
+    background-color: #00AEFF;
+    transition: all 0.3s;
+}
+
 .backgroundrm__wellcome-input {
     display: none;
 }
@@ -302,6 +307,12 @@ function handleUpload(event: Event) {
     font-size: 24px;
     text-align: center;
     cursor: pointer;
+}
+
+.backgroundrm__wellcome-label:hover {
+    background-color: #00AEFF;
+    color: #FEFDF9;
+    transition: all 0.3s;
 }
 
 .background__label-img {

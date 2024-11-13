@@ -189,6 +189,12 @@ async function removeBackground() {
     cursor: pointer;
 }
 
+.backgroundrm__wellcome-label:hover {
+    background-color: #00AEFF;
+    color: #FEFDF9;
+    transition: all 0.3s;
+}
+
 .background__label-img {
     margin-left: 16px;   
     fill: #FEFDF9;
@@ -232,6 +238,12 @@ async function removeBackground() {
     font-size: 24px;
 }
 
+.backgroundrm__workbanch-button:hover {
+    background-color: #00AEFF;
+    color: #FEFDF9;
+    transition: all 0.3s;
+}
+
 .active-button {
     background-color: #01257D17;
 }
@@ -258,6 +270,12 @@ async function removeBackground() {
     background-color: #01257D;
     color: #FEFDF9;
     border-radius: 42px;
+}
+
+.background__workbanch-link:hover {
+    background-color: #00AEFF;
+    color: #FEFDF9;
+    transition: all 0.3s;
 }
 
 </style>

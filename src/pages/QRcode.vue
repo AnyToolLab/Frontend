@@ -392,6 +392,12 @@ function adjustHeight(event) {
     height: 40px;
 }
 
+.qrcode__download-button:hover {
+    background-color: #00AEFF;
+    color: #FEFDF9;
+    transition: all 0.3s;
+}
+
 .qrcode__preview {
     display: flex;
     justify-content: center;
