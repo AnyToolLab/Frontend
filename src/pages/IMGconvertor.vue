@@ -5,12 +5,13 @@ import imgIconSVG from '../assets/images/img-icon.svg'
 import dropdownIconSVG from '../assets/images/dropdown-icon.svg'
 import deleteIconSVG from '../assets/images/delete-icon.svg'
 import addIconSVG from '../assets/images/add-icon.svg'
+import 'dotenv/config'
 
 const uploadedFiles = ref<Array<{ file: File; convert_to: string }>>([]);
 const processedFiles = ref<Array<{ file_url: string, file_name: string }>>([]);
 const isProcessing = ref(false);
 
-const SERVER_URL = 'http://159.223.218.22:8000'
+const SERVER_URL = process.env.SERVER_URL
 
 function handleUpload(event: Event) {
     const target = event.target as HTMLInputElement;

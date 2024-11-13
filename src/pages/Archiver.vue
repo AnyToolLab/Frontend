@@ -2,6 +2,7 @@
 import { computed, ref } from 'vue';
 
 import addIconSVG from '../assets/images/add-icon.svg'
+import 'dotenv/config'
 
 const action = ref<'compress' | 'extract'>('compress');
 const isProcessing = ref(false);
@@ -14,7 +15,7 @@ const extractedArchiveName = ref<string>('');
 
 const MAX_TOTAL_SIZE = 1073741824;
 const MAX_FILES_COUNT = 20;
-const SERVER_URL = 'http://159.223.218.22:8000';
+const SERVER_URL = process.env.SERVER_URL
 
 const extractedFilesCount = computed(() => {
     return extractedFiles.value.length;
